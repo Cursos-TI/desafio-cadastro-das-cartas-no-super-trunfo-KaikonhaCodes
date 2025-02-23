@@ -32,10 +32,11 @@ int main (){
 
     printf("E por último...digite o PIB: ");
     scanf(" %f", &pib);
-// Todas as linhas entre printf e scanf coletam e armazenam as variaveis declaradas no inicio do programa
+    // Todas as linhas entre printf e scanf coletam e armazenam as variaveis declaradas no inicio do programa
     float densidade = populacao / area; //Faz o calculo de densidade populacional utilizando os dados coletados
     float capita = pib / populacao; //Faz o calculo de PIB per capita utilizando os dados coletados
-
+    float inverso_densidade = 1 / densidade; //Faz o calculo inverso da densidade (tem que inverter pois vence a carta que tiver a menor densidade)
+    float Super_poder = (float) populacao + area + pib + turismo + capita + inverso_densidade; //Faz a soma de todas as variaveis (incluindo a densidade invertida) para descobrir o super poder da carta
     while (getchar() != '\n'); // Limpa o Buffer para não ter erros
 
     
@@ -68,10 +69,15 @@ int main (){
 
     printf("Por último, digite o PIB da sua cidade: ");
     scanf("%f", &pib2);
-//Todas as linhas entre printf e scanf coletam e armazenam os dados das varivaveis,seguindo o padrão da carta 1
+    //Todas as linhas entre printf e scanf coletam e armazenam os dados das varivaveis,seguindo o padrão da carta 1
     
     float densidade2 = populacao2 / area2; //Calculo densidade carta 2
     float capita2 = pib2 / populacao2; //Calculo PIB Per Capita carta 2
+    float inverso_densidade2 = 1 / densidade2;
+    float Super_poder2 = (float) populacao2 + area2 + pib2 + turismo2 + capita2 + inverso_densidade2;
+
+    
+
 
     printf("\nOk, todos os dados foram armazenados com sucesso!\n"); //Informa que os dados foram coletados de maneira correta
     printf("Aqui estão eles: \n");
@@ -86,6 +92,8 @@ int main (){
     printf("Número de pontos turísticos: %d\n", turismo);
     printf("Densidade populacional: %.2f\n", densidade);
     printf("PIB per capita: %.2f\n", capita);
+    printf("Super Poder: %.2f\n", Super_poder);
+
 
     printf("\nCarta 2: \n");
     printf("Estado: %s\n", estado2);
@@ -96,9 +104,30 @@ int main (){
     printf("PIB: %.2f\n", pib2);
     printf("Número de pontos turísticos: %d\n", turismo2);
     printf("Densidade populacional: %.2f\n", densidade2);
-    printf("PIB per capita: %.2f\n", capita2);
-//Bloco 1 informa os dados + os calculos da carta 1
-// Bloco 2 informa os dados + os calculos da carta 2
+    printf("PIB per capita: %f\n", capita2);
+    printf("Super Poder: %.2f\n", Super_poder2);
+
+    //Bloco 1 informa os dados + os calculos da carta 1
+    // Bloco 2 informa os dados + os calculos da carta 2
+    int vence_populacao = (populacao > populacao2);
+    int vence_area = (area > area2);
+    int vence_pib = (pib > pib2);
+    int vence_turismo = (turismo > turismo2);
+    int vence_densidade = (densidade < densidade2);
+    int vence_capita = (capita > capita2);
+    int vence_super_poder = (Super_poder > Super_poder2);
+    //Declara as variaveis que serão necessárias para comparar carta 1 com carta 2 e faz a comparação entre as estatisticas, linha por linha sendo comparada para exibir o resultado vencedor (1 para carta 1 e 0 para carta 2)
+
+    printf("\n*** Resultado de vencedores ***\n (1 vence a Primeira carta, 0 vence a segunda carta)\n Aqui estão os resultados: \n");
+    printf("\nVence em População: %d\n", vence_populacao);
+    printf("Vence em área: %d\n", vence_area);
+    printf("Venc em PIB: %d\n", vence_pib);
+    printf("Vence em Pontos Turisticos: %d\n", vence_turismo);
+    printf("Vence em Densidade Populacional: %d\n", vence_densidade);
+    printf("Vence em PIB Per Capita: %d\n", vence_capita);
+    printf("Vence em Super Poder: %d\n", vence_super_poder);
+    //Exibe na tela o resultado das comparações, mostrando assim a carta vencedora
+
 
 
     return 0;
