@@ -128,6 +128,18 @@ int main (){
     printf("Vence em Super Poder: %d\n", vence_super_poder);
     //Exibe na tela o resultado das comparações, mostrando assim a carta vencedora
 
+    if(populacao > populacao2){
+        printf("\nComparação de Cartas (Atributo: População)\n");
+        printf("Carta 1 - %s: %d\n", cidade, populacao); //imprime os dados nome e população da carta 1
+        printf("Carta 2 %s: %d\n", cidade2, populacao2); //imprime os dados nome e população da carta 2
+        printf("Resultado: Carta 1 (%s) VENCEU!!!\n", cidade); //Imprime a carta 1 como vencedora, caso a condição do if seja verdadeira
+    }else{ 
+        printf("Comparação de Cartas (Atributo: População)\n");
+        printf("Carta 1 - %s: %d\n", cidade, populacao); //imprime os dados nome e população da carta 1
+        printf("Carta 2 %s: %d\n", cidade2, populacao2); //imprime os dados nome e população da carta 2
+        printf("Resultado: Carta 2 (%s) VENCEU!!!\n", cidade2);//imprime a carta 2 como vencedora,caso a condição do if seja falsa
+
+    }
 
 
     return 0;
