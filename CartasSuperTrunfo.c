@@ -94,6 +94,7 @@ int main (){
     printf("PIB per capita: %.2f\n", capita);
     printf("Super Poder: %.2f\n", Super_poder);
 
+    
 
     printf("\nCarta 2: \n");
     printf("Estado: %s\n", estado2);
